@@ -10,7 +10,7 @@ logging.basicConfig(
 )
 
 def run_pipeline():
-  pipeline_name="incremental_todos_pipeline"
+  
   logging.info("Starting incremental todos pipeline...")
 
 try:

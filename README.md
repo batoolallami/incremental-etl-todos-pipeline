@@ -1,10 +1,15 @@
-# incremental-etl-todos-pipeline
+# incremental-etl-todos-pipeline (Python + PostgreSQL)
 ## Overview
-Incremental ETL pipelines using python and postgresql with raw/clean layers and metadata tracking.
-It extracts todo data from a public API, stores raw records in a raw table, creates a clean deduplicated table, and tracks pipeline run using a metadata table.
+Incremental ETL pipelines using Python and PostgreSQL with raw/clean layers and metadata tracking.
+The pipeline extracts todo data from a public API, loads raw records into a database, transforms it into a clean layer, and tracks pipeline execution using a metadata table.
 
 ## Architecture
 API -> raw_todos -> clean_todos -> pipeline_runs
+
+##code
+- **raw_todos** -> stores raw ingested data
+- **clean_todos** ->deduplicated, cleaned data
+- **pipeline_runs** -> tracks execution and incremental state
 
 ## Features
 - Extracts data from API
@@ -17,7 +22,7 @@ API -> raw_todos -> clean_todos -> pipeline_runs
 ## Tables
 - raw_todos : raw ingested data
 - clean_todos : cleaned deduplicated data
-- pipeline_run : metadata and run history
+- pipeline_runs : metadata and run history
 
 ## Tech Stack
 - python
@@ -25,4 +30,25 @@ API -> raw_todos -> clean_todos -> pipeline_runs
 - requests
 - postgresql
 - sqlalchemy
+
+## how to run
+1. Install dependencies:
+   '''bash
+   pip install -r requirments.txt
+2- Update database config.py
+3- Run pipeline
+
+# Key Concepts Demonstrated
+. Incremental ETL design
+. Data pipeline structuring
+. Idempotent data loading
+. Data validation and logging
+. Basic data warehousing patterns
+
+# Future Improvements
+. Add Airflow orchestration
+. Add Docker support
+. Add unit tests
+. Add data quality checks
+
   
